@@ -6,14 +6,6 @@ body{
 .movie-app > .row{
   overflow-x: auto;
   flex-wrap: nowrap;
-  /* display: flex; */
-  /* flex-direction: row; */
-  /* flex-wrap: nowrap; */
-  /* align-items: flex-start; */
-  /* display: flex; */
-  /* flex-wrap: wrap; */
-  /* justify-content: space-around; */
-  /* gap: 16px; */
 }
 
 .row1{
