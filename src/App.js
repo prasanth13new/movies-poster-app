@@ -4,13 +4,15 @@ import { useEffect, useState } from 'react';
 import MovieList from './Components/MovieList';
 import MovieListHeading from './Components/MovieListHeading';
 import SearchBox from './Components/SearchBox';
+import CustomPagination from './Pagination/CustomPagination';
 
 function App() {
+  const [page, setPage] = useState(1);
   const [movies, setMovies] = useState([]);
   const [searchValue, setSearchValue] = useState('');
 
   const getMovieRequest = async (searchValue) => {
-    const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=263d22d8`;
+    const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=263d22d8&page=${page}`;
 
     const response = await fetch(url);
     const responseJson = await response.json();
@@ -22,7 +24,7 @@ function App() {
 
   useEffect(() => {
     getMovieRequest(searchValue);
-  }, [searchValue]);
+  }, [searchValue, page]);
 
   return (
     <div className="container-fluid movie-app">
@@ -33,6 +35,8 @@ function App() {
       <div className="row1">
         <MovieList movies={movies} />
       </div>
+      {/* <CustomPagination setPage={setPage}/> */}
+      {searchValue ? <CustomPagination setPage={setPage}/> : ""}
     </div>
   );
 }
