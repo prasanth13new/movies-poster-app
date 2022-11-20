@@ -37,7 +37,7 @@ function App() {
         <MovieList movies={movies} />
       </div>
       {/* <CustomPagination setPage={setPage}/> */}
-      {searchValue ? <CustomPagination setPage={setPage}/> : ""}
+      {searchValue ? <CustomPagination setPage={setPage} /> : ""}
     </div>
   );
 }
